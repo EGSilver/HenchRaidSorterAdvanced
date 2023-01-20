@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="untitledHench:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/untitledHench_jar</output-path>
+    <root id="archive" name="untitledHench.jar">
+      <element id="module-output" name="untitledHench" />
+    </root>
+  </artifact>
+</component>

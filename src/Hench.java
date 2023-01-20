@@ -1,4 +1,3 @@
-import javax.sound.midi.Soundbank;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -51,6 +50,7 @@ public class Hench extends DefaultListCellRenderer {
     private JLabel textPaneHealsCount;
     private JLabel textPaneMeleeCount;
     private JLabel textPaneRangedCount;
+    private JButton addAllButton;
 
     private ImageIcon tankIcon = new ImageIcon(getClass().getResource("/img/tank-removebg.png"));
     private ImageIcon healerIcon = new ImageIcon(getClass().getResource("/img/healerxx-removebg.png"));
@@ -162,6 +162,7 @@ public class Hench extends DefaultListCellRenderer {
                     } catch (NullPointerException np) {
                         System.out.println("No raid selected");
                     }
+                    sortAllPlayerList();
                 }
             }
         });
@@ -424,6 +425,7 @@ public class Hench extends DefaultListCellRenderer {
                         } catch (NullPointerException np) {
                             System.out.println("No raid selected");
                         }
+                        sortAllPlayerList();
                     }
                 }
             }
@@ -434,6 +436,12 @@ public class Hench extends DefaultListCellRenderer {
                 if (allRaidsCombobox.getSelectedItem() != null) {
                     trustButton.setEnabled(true);
                 }
+            }
+        });
+        addAllButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                allPlayersJlist.getSelectedValuesList();
             }
         });
     }
@@ -473,7 +481,6 @@ public class Hench extends DefaultListCellRenderer {
                 textPaneRangedCount.setText(String.valueOf(rangedCounter));
             }
         } catch (NullPointerException e) {
-
         }
     }
 

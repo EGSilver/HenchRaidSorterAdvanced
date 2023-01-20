@@ -139,7 +139,7 @@
                       </component>
                       <component id="60e04" class="javax.swing.JButton" binding="clearListButton">
                         <constraints>
-                          <grid row="3" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
                           <text value="Clear"/>
@@ -232,7 +232,7 @@
                       </grid>
                       <component id="ac8a" class="javax.swing.JButton" binding="trustButton" default-binding="true">
                         <constraints>
-                          <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="5" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
                           <text value="Generate Roster"/>
@@ -244,14 +244,6 @@
                         </constraints>
                         <properties>
                           <model/>
-                        </properties>
-                      </component>
-                      <component id="61329" class="javax.swing.JButton" binding="sortButton" default-binding="true">
-                        <constraints>
-                          <grid row="5" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <text value="Sort"/>
                         </properties>
                       </component>
                       <component id="8af83" class="javax.swing.JLabel" binding="textPaneTanksCount">
@@ -295,6 +287,14 @@
                           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                         </constraints>
                       </vspacer>
+                      <component id="4e73d" class="javax.swing.JButton" binding="addAllButton" default-binding="true">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Add all"/>
+                        </properties>
+                      </component>
                     </children>
                   </grid>
                   <component id="2fe65" class="javax.swing.JTextArea" binding="textAreaCounter">

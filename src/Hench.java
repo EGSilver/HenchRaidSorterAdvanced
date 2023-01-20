@@ -371,12 +371,6 @@ public class Hench extends DefaultListCellRenderer {
                 textFieldAddRaidNewName.setText("");
             }
         });
-        sortButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                sortAllPlayerList();
-            }
-        });
         rosterJlist.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

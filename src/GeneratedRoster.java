@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.io.IOException;
 import java.text.ParseException;
 import javax.swing.JTable;
@@ -14,6 +15,9 @@ public class GeneratedRoster {
     private JTable table1;
     private DefaultListModel generatedRosterModel = new DefaultListModel<>();
     private DefaultTableModel model = new DefaultTableModel();
+
+    private boolean smallFont = true;
+    private boolean bigFont = false;
 
     public GeneratedRoster() {
         model.addColumn("Name");
@@ -30,6 +34,20 @@ public class GeneratedRoster {
     public void sortTableOnClass(ArrayList<Player> roster) {
         if (!roster.isEmpty() && !roster.isEmpty()) {
             roster.sort(Comparator.comparing(Player::getRole));
+        }
+    }
+
+    public void changeFontSize() {
+        Font smallFontPreset = new Font("Arial", Font.PLAIN, 12);
+        Font LargeFontPreset = new Font("Arial", Font.PLAIN, 16);
+        if (!smallFont && bigFont) {
+            table1.setFont(smallFontPreset);
+            bigFont = false;
+            smallFont = true;
+        } else if (smallFont && !bigFont) {
+            table1.setFont(LargeFontPreset);
+            bigFont = true;
+            smallFont = false;
         }
     }
 

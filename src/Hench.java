@@ -51,6 +51,7 @@ public class Hench extends DefaultListCellRenderer {
     private JLabel textPaneMeleeCount;
     private JLabel textPaneRangedCount;
     private JButton addAllButton;
+    private JButton changeFontButton;
 
     private ImageIcon tankIcon = new ImageIcon(getClass().getResource("/img/tank-removebg.png"));
     private ImageIcon healerIcon = new ImageIcon(getClass().getResource("/img/healerxx-removebg.png"));
@@ -68,6 +69,8 @@ public class Hench extends DefaultListCellRenderer {
     private DatabaseManager databaseManager = new DatabaseManager();
     private GeneratedRoster generatedRoster = new GeneratedRoster();
     private int counter = 0;
+    boolean smallFont = true;
+    boolean bigFont = false;
 
 
     public Hench() throws IOException {
@@ -284,6 +287,8 @@ public class Hench extends DefaultListCellRenderer {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Player player = new Player("", "", "");
+                Object onozelaar = jListPlayerManager.getSelectedValue();
+                System.out.println(onozelaar);
                 if (allPlayers.contains(jListPlayerManager.getSelectedValue())) {
                     for (Player p : allPlayers) {
                         player = p;
@@ -293,7 +298,7 @@ public class Hench extends DefaultListCellRenderer {
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
-                    allPlayers.remove(jListPlayerManager.getSelectedValue());
+                    allPlayers.remove(onozelaar);
                     modelAllPlayers.clear();
                     modelAllPlayers.addAll(allPlayers);
                     jListPlayerManager.setModel(modelAllPlayers);
@@ -330,6 +335,7 @@ public class Hench extends DefaultListCellRenderer {
                     modelAllPlayers.clear();
                     modelAllPlayers.addAll(allPlayers);
                     jListPlayerManager.setModel(modelAllPlayers);
+                    sortAllPlayerList();
                 }
             }
         });
@@ -438,6 +444,12 @@ public class Hench extends DefaultListCellRenderer {
                 allPlayersJlist.getSelectedValuesList();
             }
         });
+        changeFontButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeFontSize();
+            }
+        });
     }
 
     public ArrayList<Raid> loadAllRaid() throws IOException {
@@ -496,6 +508,35 @@ public class Hench extends DefaultListCellRenderer {
             }
         } catch (NullPointerException e) {
 
+        }
+    }
+
+    public void changeFontSize() {
+        Font smallFontPreset = new Font("Arial", Font.PLAIN, 12);
+        Font LargeFontPreset = new Font("Arial", Font.PLAIN, 16);
+        if (!smallFont && bigFont) {
+            jListPlayerManager.setFont(smallFontPreset);
+            allPlayersJlist.setFont(smallFontPreset);
+            rosterJlist.setFont(smallFontPreset);
+            textPaneTanksCount.setFont(smallFontPreset);
+            textPaneHealsCount.setFont(smallFontPreset);
+            textPaneMeleeCount.setFont(smallFontPreset);
+            textPaneRangedCount.setFont(smallFontPreset);
+            generatedRoster.changeFontSize();
+            bigFont = false;
+            smallFont = true;
+        } else if (smallFont && !bigFont) {
+            jListPlayerManager.setFont(LargeFontPreset);
+            allPlayersJlist.setFont(LargeFontPreset);
+            allPlayersJlist.setFont(LargeFontPreset);
+            rosterJlist.setFont(LargeFontPreset);
+            textPaneTanksCount.setFont(LargeFontPreset);
+            textPaneHealsCount.setFont(LargeFontPreset);
+            textPaneMeleeCount.setFont(LargeFontPreset);
+            textPaneRangedCount.setFont(LargeFontPreset);
+            generatedRoster.changeFontSize();
+            bigFont = true;
+            smallFont = false;
         }
     }
 
